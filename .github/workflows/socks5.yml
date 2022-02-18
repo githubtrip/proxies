@@ -1,0 +1,25 @@
+name: 03 - Python Script Workflow
+
+on:
+  schedule:
+  - cron: "* * * * *" # Runs at 02:00 UTC
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository content
+        uses: actions/checkout@v2 # Checkout the repository content to github runner.
+
+      - name: Setup Python Version
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8 # Install the python version needed
+
+      - name: Install Python dependencies
+        run: python pip install -r requirements.txt
+
+      - name: Execute Python script # Run thesocks5check.py to get the latest socks5 data
+        run: python socks5check.py
