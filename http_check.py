@@ -40,7 +40,7 @@ async def check_proxy(host, port):
 		async with aiohttp.ClientSession(connector=ProxyConnector(
 			proxy_type=ProxyType.http, host=host, port=port, rdns=True
 		), timeout=timeout, trace_configs=[trace_config]) as session:
-			resp = await session.get("https://youtube.com")
+			resp = await session.get("http://youtube.com")
 			resp.close()
 	except Exception:
 		print(f"[Proxy {proxy}] session failed")
