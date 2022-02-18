@@ -19,6 +19,9 @@ jobs:
           python-version: 3.8 # Install the python version needed
 
       - name: Install Python dependencies
+        run: python -m pip install --upgrade pip requests
+
+      - name: Install Python dependencies
         run: python pip install -r requirements.txt
 
       - name: Execute Python script # Run thesocks5check.py to get the latest socks5 data
