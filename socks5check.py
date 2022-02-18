@@ -56,7 +56,7 @@ if __name__ == "__main__":
 		print(f"Found list of {len(proxy_list)} proxies")
 
 		result = loop.run_until_complete(asyncio.gather(*(check_proxy(host, int(port)) for host, port in proxy_list)))
-		with open("./socks5result.txt", "w") as f:
+		with open("socks5result.txt", "w") as f:
 			f.write("\n".join((info["proxy"] for info in filter(lambda d: d["passed"], result))))
 	else:
 		print("Found no proxy list")
