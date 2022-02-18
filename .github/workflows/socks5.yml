@@ -25,4 +25,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Execute Python script # Run thesocks5check.py to get the latest socks5 data
-        run: python socks5check.py
+        run: sudo python socks5check.py
